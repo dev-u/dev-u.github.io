@@ -1,6 +1,6 @@
 ---
 title: "Olá Mundo!"
-permalink: /sobre
+permalink: /sobre/
 header:
     image: "images/devu_banner.jpg"
 ---
