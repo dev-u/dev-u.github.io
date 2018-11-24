@@ -1,5 +1,5 @@
 ---
-title: "Post Exemplo: Como utilizar a notação Markdown!"
+title: "Post Exemplo: Exemplos da notação Markdown!"
 date: 2018-11-24
 tags: [dev-u, jekyll, markdown, tutorial]
 header:
