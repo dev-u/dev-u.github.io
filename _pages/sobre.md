@@ -1,6 +1,7 @@
 ---
 title: "Olá Mundo!"
 permalink: /sobre/
+author: Hugo Borges
 header:
     image: "/images/devu_banner.jpg"
 ---

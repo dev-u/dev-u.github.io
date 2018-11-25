@@ -2,6 +2,7 @@
 title: "Post Exemplo: Exemplos da notação Markdown!"
 date: 2018-11-24
 tags: [dev-u, jekyll, markdown, tutorial]
+author: Hugo Borges
 header:
     image: "/images/devu_banner.jpg"
 excerpt: "Dev-U, Jekyll, Markdown, Tutorial"
