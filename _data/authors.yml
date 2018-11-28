@@ -8,12 +8,9 @@ Hugo Borges:
   email            : "hugouchoas@outlook.com"
   links:
     - label: "Sobre"
-      url: /about/
+      url: "https://hugouchoasborges.github.io/about/"
     - label: "Postagens"
-      url: "//"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:hugouchoas@outlook.com
+      url: "https://hugouchoasborges.github.io/"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://hugouchoasborges.github.io"
