@@ -1,4 +1,4 @@
-    ---
+---
 title: "Gitkraken - Principais Funções"
 date: 2018-11-24
 tags: [dev-u, git, github, gitkraken]
@@ -45,7 +45,9 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
     * <A href="#buscando-alterações-no-remoto-sem-perder-seu-trabalho-atual">Buscando alterações no remoto sem perder seu trabalho atual</A>
     * <A href="#rebase---trazendo-alterações-na-develop-para-sua-branch">Rebase - Trazendo alterações na Develop para sua branch</A>
 
-
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 # Criando um Repositório
 
 Para criar um repositório, primeiro entre no [**GitHub**](https://www.github.com) com sua conta.
@@ -65,6 +67,9 @@ A tela para criação de um novo repositório será como a seguinte:
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 ## Principais Branches
 
 Em nossos projetos, costumamos seguir algumas convenções de nomes para as *Branches*, de modo a manter a organização e para todos os membros consigam interagir em todos repositórios.
@@ -104,6 +109,10 @@ Para deletar a branch **Master**, basta entrar em **Code/branches** e deletar a 
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Definindo regras nas Branches
 
 Caso o projeto em que deseja trabalhar tenha mais de 1 contribuidor, é interessante impedir que os seus usuários enviem *commits* diretamente para as **3 branches** principais, precisando passarem pela avaliação de um *Pull-Request*. Para isso, é necessário configurar algumas regras para as *branches*.
@@ -121,6 +130,10 @@ Novamente no menu **Settings/Branches**, desta vez utilizaremos a opção **Add 
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Convidando usuários para o Repositório
 
 Para adicionar um usuário do *GitHub* como colaborador, você deverá entrar no menu **Settings/Collaborators**. Então é só pesquisar pelo usuário.
@@ -135,6 +148,10 @@ Após adicionado, o usuário cadastrado receberá uma notificação de convite p
 
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 # Clonando um Projeto
 
@@ -153,6 +170,10 @@ git clone https://github.com/dev-u/emburradinho_prototipo.git
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 # Abrindo um Projeto já clonado
 
 Para abrir um projeto já clonado pelo *GitKraken*,
@@ -161,6 +182,10 @@ Para abrir um projeto já clonado pelo *GitKraken*,
 <img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_open.JPG" alt="GitKraken Open">{: .center-image }
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 # Criando uma nova Branch
 
@@ -178,6 +203,10 @@ git checkout -b nome_da_branch
 
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 ## Boas Práticas e Padrões
 
@@ -197,6 +226,10 @@ Resumidamente, todas as novas *branches* deverão ser criadas a partir da *branc
 
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 # Enviando Commits
 
@@ -268,6 +301,10 @@ Um exemplo prático de fluxo de um commit pela linha de comando:
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Boas Práticas e Padrões
 
 Para os commits, costumamos colocar uma **TAG** padrão no início da mensagem de *commit*, estamos utilizando os seguintes padrões:
@@ -292,6 +329,10 @@ Exemplos de commits:
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+
+{% endcomment %}
 ## Amend - Alterando seu último commit 
 
 Em poucas palavras, *amend* é uma forma de alterar o último *commit* realizado em uma branch de um repositório.
@@ -334,7 +375,15 @@ git push origin nomeDaBranch -f
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Stash - Guardando alterações para mais tarde
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 ## Rebase - Alterando Commits antigos
 
@@ -389,41 +438,81 @@ git push origin nomeDaBranch -f
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 # Criando Pull-Requests
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 ## Boas Práticas e Padrões
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Tratando Conflitos
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+
+{% endcomment %}
 # Testando Pull-Requests
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 ## Avaliando e Aceitando Pull-Requests
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Sugerindo Alterações
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 # Situações menos comuns
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Descartando commits já feitos
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
+
 ## Buscando alterações no remoto sem perder seu trabalho atual
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+{% comment %}
+ # ---------------------------------------------------------------------------------------------------------------------------------------- #
+{% endcomment %}
 
 ## Rebase - Trazendo alterações na Develop para sua branch
 
