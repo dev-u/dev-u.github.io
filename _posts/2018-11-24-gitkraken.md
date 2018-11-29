@@ -29,6 +29,7 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
 * <A href="#enviando-commits">Enviando Commits</A>
     * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
     * <A href="#amend---alterando-seu-último-commit">Amend - Alterando seu último commit </A>
+    * <A href="#stash---guardando-alterações-para-mais-tarde">Amend - Alterando seu último commit </A>
     * <A href="#rebase---alterando-commits-antigos">Rebase - Alterando Commits Antigos</A>
     
 * <A href="#criando-pull-requests">Criando Pull-Requests</A>
@@ -315,6 +316,8 @@ Duas observações sobre **amend**:
     * **Por que isso é um problema?** Porque, caso tenha mais alguém trabalhando na mesma *branch* em que o **amend** foi realizado, caso essa pessoa já tenha dado um **Pull** e baixado para sua branch local as alterações que você está modificando, será necessário que essa pessoa reconstrua os commits locais dela.
 
 * <A href="#links-rápidos">Voltar ao Início</A>
+
+## Stash - Guardando alterações para mais tarde
 
 ## Rebase - Alterando Commits antigos
 
