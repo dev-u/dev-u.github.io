@@ -1,4 +1,4 @@
----
+    ---
 title: "Gitkraken - Principais Funções"
 date: 2018-11-24
 tags: [dev-u, git, github, gitkraken]
@@ -302,17 +302,34 @@ Em poucas palavras, *amend* é uma forma de alterar o último *commit* realizado
 * Após algum tempo de reflexão, você percebe que faltou a adição de uma linha de código para o *commit* em questão;
 * No lugar de criar um novo *commit* para incluir a adição da nova linha, você pode alterá-lo adicionando a nova linha e, até mesmo, alterando a mensagem de *commit*.
 
-**Como criar um ammend:**
+### Como criar um ammend:
 
-Pelo Gitkraken: 
+### Pelo Gitkraken
 
-Pela linha de comando: 
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_ammend.png" alt="Gitkraken Ammend">{: .center-image }
+
+Para enviar o commit forçando a reconstrução dos *commits* remotos.
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_force_push.png" alt="Gitkraken Force Push">{: .center-image }
 
 
+### Pela linha de comando:
 
-Duas observações sobre **amend**:
-1. Caso **NÃO** tenha sido dado *PUSH* no commit, o **amend** não trará nenhuma consequência negativa;
-2. Caso **JÁ** tenha sido dado *PUSH* no commit, o **amend** fará com que seja necessário forçar uma reconstrução dos commits remotos.
+```bash
+git add .
+git commit --ammend
+```
+
+Para enviar o commit forçando a reconstrução dos *commits* remotos.
+
+```bash
+git push origin nomeDaBranch -f 
+```
+
+
+### Duas observações sobre **amend**:
+1. Caso **NÃO** tenha sido dado *PUSH* no commit **anterior**, o **amend** não trará nenhuma consequência negativa;
+2. Caso **JÁ** tenha sido dado *PUSH* no commit **anterior**, o **amend** fará com que seja necessário forçar uma reconstrução dos commits remotos.
     * **Por que isso é um problema?** Porque, caso tenha mais alguém trabalhando na mesma *branch* em que o **amend** foi realizado, caso essa pessoa já tenha dado um **Pull** e baixado para sua branch local as alterações que você está modificando, será necessário que essa pessoa reconstrua os commits locais dela.
 
 * <A href="#links-rápidos">Voltar ao Início</A>
@@ -320,6 +337,55 @@ Duas observações sobre **amend**:
 ## Stash - Guardando alterações para mais tarde
 
 ## Rebase - Alterando Commits antigos
+
+O *Rebase* é utilizado em muitas situações. No momento me limitarei a usá-lo com o intuito de alterar um **ou mais** *commits* antigos.
+{: .text-justify}
+
+### Pela linha de comando:
+
+Primeiro, deve-se utilizar a ferramenta **TIG** para procurar **até qual** *commit* o rebase atuará.
+{: .text-justify}
+
+```bash
+tig 
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/bash_tig2.png" alt="Bash TIG">{: .center-image }
+
+No menu do **tig**, navegue até o commit **anterior** ao commit que se deseja modificar.  No caso da imagem acima, queremos modificar a mensagem do commit **\[WIP\]**, então entramos no commit **\[ADD\] Gitkraken Empty Post**.
+{: .text-justify}
+
+Estando no *commit* desejado, devemos copiar a **HASH** do *commit*, que é o valor *hexadecimal* que representa o *commit* no servidor remoto.
+{: .text-justify}
+
+
+Com a *hash* copiada, damos o comando **rebase**, passando como parâmetro a *hash* copiada e o parâmetro **-i**, para que o *rebase* seja feito iterativamente.
+{: .text-justify}
+
+```bash
+git rebase -i 85cfe54448545ef65072dd5f8a2f5e3958cc00e1
+```
+
+Com isso, será aberta uma tela com instruções sobre como fazer um *rebase*.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/bash_rebase.png" alt="Bash Rebase">{: .center-image }
+
+Como queremos apenas **renomear** o commit **\[WIP\]**, utilizaremos a palavra **reword** na frente do mesmo, seguido de **CTRL + X** para continuar o processo.
+{: .text-justify}
+
+Em seguida, uma tela para modificar o texto do *commit* especificado se abrirá, bastando modificar a mensagem de *commit*, como na imagem abaixo.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/bash_rebase_reword.png" alt="Bash Rebase Reword">{: .center-image }
+
+
+No final, é necessário realizar um *pull* forçado pelo parâmetro **-f**, lembrando que isso **reconstruirá** a sequência dos commits remotos, o que pode quebrar o trabalho de outra pessoa que esteja atuando na mesma *branch*:
+{: .text-justify}
+
+```bash
+git push origin nomeDaBranch -f 
+```
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
