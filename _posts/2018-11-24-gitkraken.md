@@ -16,7 +16,7 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
 
 
 ## **Links Rápidos**
-* <A href="#criando-um-repositorio">Criando um Repositório</A>
+* <A href="#criando-um-repositório">Criando um Repositório</A>
     * <A href="#principais-branches">Principais Branches</A>
     * <A href="#definindo-regras-nas-branches">Definindo regras nas Branches</A>
     * <A href="#convidando-usuários-para-o-repositório">Convidando usuários para o Repositório</A>
@@ -24,16 +24,16 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
 * <A href="#clonando-um-projeto">Clonando um Projeto</A>
 * <A href="#abrindo-um-projeto-já-clonado">Abrindo um Projeto já clonado</A>
 * <A href="#criando-uma-nova-branch">Criando uma nova Branch</A>
-    * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
+    * <A href="#boas-práticas-e-padrões-1">Boas Práticas e Padrões</A>
 
 * <A href="#enviando-commits">Enviando Commits</A>
-    * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
+    * <A href="#boas-práticas-e-padrões-2">Boas Práticas e Padrões</A>
     * <A href="#amend---alterando-seu-último-commit">Amend - Alterando seu último commit </A>
     * <A href="#stash---guardando-alterações-para-mais-tarde">Stash - Guardando alterações para mais tarde </A>
     * <A href="#rebase---alterando-commits-antigos">Rebase - Alterando Commits Antigos</A>
     
 * <A href="#criando-pull-requests">Criando Pull-Requests</A>
-    * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
+    * <A href="#boas-práticas-e-padrões-3">Boas Práticas e Padrões</A>
     * <A href="#tratando-conflitos---separando-crianças-de-adultos">Tratando Conflitos - Separando crianças de adultos</A>
 
 {% comment %}
@@ -199,7 +199,7 @@ git checkout -b nome_da_branch
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 {% endcomment %}
 
-## Boas Práticas e Padrões
+## Boas Práticas e Padrões 1
 
 O primeiro ponto a levar em consideração quando se fala de padrões é a nomenclatura.
 O padrão incorporado pela *Dev-U* é o padrão usando em empresas.
@@ -296,7 +296,7 @@ Um exemplo prático de fluxo de um commit pela linha de comando:
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 {% endcomment %}
 
-## Boas Práticas e Padrões
+## Boas Práticas e Padrões 2
 
 Para os commits, costumamos colocar uma **TAG** padrão no início da mensagem de *commit*, estamos utilizando os seguintes padrões:
 {: .text-justify}
@@ -565,7 +565,7 @@ Para tratar essa situação, veja o tópico <A href="#tratando-conflitos">**"Tra
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 {% endcomment %}
 
-## Boas Práticas e Padrões
+## Boas Práticas e Padrões 3
 
 Na imagem de criação de *Pull-Requests* do tópico anterior, pode ser visto alguns campos a serem preenchidos.
 {: .text-justify}
