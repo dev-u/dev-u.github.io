@@ -29,16 +29,12 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
 * <A href="#enviando-commits">Enviando Commits</A>
     * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
     * <A href="#amend---alterando-seu-último-commit">Amend - Alterando seu último commit </A>
-    * <A href="#stash---guardando-alterações-para-mais-tarde">Amend - Alterando seu último commit </A>
+    * <A href="#stash---guardando-alterações-para-mais-tarde">Stash - Guardando alterações para mais tarde </A>
     * <A href="#rebase---alterando-commits-antigos">Rebase - Alterando Commits Antigos</A>
     
 * <A href="#criando-pull-requests">Criando Pull-Requests</A>
     * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
-    * <A href="#tratando-conflitos">Tratando Conflitos</A>
-
-* <A href="#testando-pull-requests">Testando Pull-Requests</A>
-    * <A href="#avaliando-e-aceitando-pull-requests">Avaliando e Aceitando Pull-Requests</A>
-    * <A href="#sugerindo-alterações">Sugerindo Alterações</A>
+    * <A href="#tratando-conflitos---separando-crianças-de-adultos">Tratando Conflitos - Separando crianças de adultos</A>
 
 * <A href="#situações-menos-comuns">Situações menos comuns</A>
     * <A href="#descartando-commits-já-feitos">Descartando commits já feitos</A>
@@ -350,6 +346,7 @@ Em poucas palavras, *amend* é uma forma de alterar o último *commit* realizado
 <img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_ammend.png" alt="Gitkraken Ammend">{: .center-image }
 
 Para enviar o commit forçando a reconstrução dos *commits* remotos.
+{: .text-justify}
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_force_push.png" alt="Gitkraken Force Push">{: .center-image }
 
@@ -362,6 +359,7 @@ git commit --ammend
 ```
 
 Para enviar o commit forçando a reconstrução dos *commits* remotos.
+{: .text-justify}
 
 ```bash
 git push origin nomeDaBranch -f 
@@ -372,6 +370,7 @@ git push origin nomeDaBranch -f
 1. Caso **NÃO** tenha sido dado *PUSH* no commit **anterior**, o **amend** não trará nenhuma consequência negativa;
 2. Caso **JÁ** tenha sido dado *PUSH* no commit **anterior**, o **amend** fará com que seja necessário forçar uma reconstrução dos commits remotos.
     * **Por que isso é um problema?** Porque, caso tenha mais alguém trabalhando na mesma *branch* em que o **amend** foi realizado, caso essa pessoa já tenha dado um **Pull** e baixado para sua branch local as alterações que você está modificando, será necessário que essa pessoa reconstrua os commits locais dela.
+{: .text-justify}
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
@@ -380,6 +379,100 @@ git push origin nomeDaBranch -f
 {% endcomment %}
 
 ## Stash - Guardando alterações para mais tarde
+
+A *Stash* é uma pilha usada para guardar alterações feitas em um repositório local. 
+{: .text-justify}
+
+Suponha a seguinte situação:
+* Você está trabalhando na criação da I.A. dos inimigos de seu jogo;
+* Algum parceiro de equipe te pede para ajudá-lo em uma funcionalidade que ele está trabalhando;
+* Você interrompe seu trabalho para ajudá-lo, mas precisa guardar suas alterações em algum lugar, antes de mudar para a branch de seu colega;
+* Como fazer isso?
+{: .text-justify}
+
+Uma alternativa é *commitar* todas suas alterações para um *commit* temporário, para então mudar para a *branch* de seu amigo.
+{: .text-justify}
+
+Mas uma alternativa melhor é a utilização da **Stash** para guardar seu atual trabalho.
+{: .text-justify}
+
+A **Stash** funciona da seguinte maneira:
+1. Você joga na *Stash* suas modificações atuais na *branch* a qual está trabalho;
+2. A *Stash* cuida para criar um 'commit' temporário nela, que pode ser acessado mais tarde;
+3. Quando quiser voltar ao trabalho de onde parou, basta pedir para a *Stash* as suas modificações que foram salvas, o *Git* se encarregará de atualizar seu repositório local com as alterações salvas anteriormente.
+{: .text-justify}
+
+Notas:
+* A *Stash* consegue salvar arquivos inteiros inseridos ou removidos durante o trabalho;
+* A *Stash* também consegue salvar apenas linhas adicionadas ou removidas durante o trabalho;
+* Apesar de ser uma **pilha**, você não necessariamente terá acesso apenas ao último elemento adicionado na *Stash*.
+
+### Pelo Gitkraken
+
+Primeiro, tendo alterações para serem *commitadas*, basta clicar no botão **Stash**, no topo do programa.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_stash_button.JPG" alt="Gitkraken Stash Button">{: .center-image }
+
+Após isso, será adicionado um novo elemento no submenu *Stash*, no menu lateral esquerdo. Clicando-se na *stash* criada serão mostradas as alterações no menu lateral direito do programa.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_stash.JPG" alt="Gitkraken Stash">{: .center-image }
+
+Para aplicar as alterações da Stash novamente no código, basta ir na opção **Apply** ou na opção **POP**.
+* A opção **Apply** aplicará as alterações da *Stash* no seu trabalho atual, **mantendo** a *Stash* intacta;
+* A opção **POP** aplicará as alterações da *Stash* no seu trabalho atual, porém **removendo** o item da *Stash*.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_stash_pop.JPG" alt="Gitkraken Stash Popup">{: .center-image }
+
+
+### Pela linha de Comando
+
+Pela linha de comando, apenas 3 comandos são necessários:
+{: .text-justify}
+
+* **git stash** - Guardará o trabalho atual na *Stash*
+{: .text-justify}
+```bash
+git stash 
+```
+
+* **git stash pop** - Recuperará o trabalho a partir do **último item** da *Stash*, **removendo-o** da *Stash*
+{: .text-justify}
+```bash
+git stash pop
+```
+
+
+* **git stash apply** - Recuperará o trabalho a partir do **último item** da *Stash*, **mantendo-o** na *Stash*
+{: .text-justify}
+```bash
+git stash apply
+```
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/bash_stash.JPG" alt="Bash Stash">{: .center-image }
+
+
+Para trabalhar com itens da *Stash* mais antigos, é necessário mais um parâmetro nos dois comandos anteriores.
+{: .text-justify}
+
+* **git stash list** - Lista os itens salvos na *Stash*
+{: .text-justify}
+
+```bash
+git stash list
+```
+* **git stash pop\apply stash@{indice}** - Aplica o item passado pelo parâmetro **indice** da *Stash* no trabalho atual
+{: .text-justify}
+
+```bash
+git stash pop stash@{indice}
+git stash apply stash@{indice}
+```
+
+
+* <A href="#links-rápidos">Voltar ao Início</A>
 
 {% comment %}
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
@@ -444,6 +537,33 @@ git push origin nomeDaBranch -f
 
 # Criando Pull-Requests
 
+Quando se está trabalhando em uma *Branch* separada, após o trabalho ter terminado, é necessário juntar o código feito com o código da *Branch* de desenvolvimento que o resto da equipe está utilizando. Para isso, utilizamos os **Pull-Requests**.
+{: .text-justify}
+
+### Pelo Gitkraken
+
+Basta utilizar o botão **+** no submenu *Pull-Requests*
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request.JPG" alt="GitKraken Pull-Request">{: .center-image }
+
+### Pelo site do Github
+
+Pelo site também é bem simples, bastando ir no menu *Pull-Request* e clicar no botão **New Pull-Request**:
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/github_pull_request.JPG" alt="Github Pull-Request">{: .center-image }
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/github_pull_request_2.JPG" alt="Github Pull-Request">{: .center-image }
+
+Note, nessa última imagem, que existe a mensagem **"Can't Automatically Merge"**. Isso significa que existe algum **conflito** impossibilitando o **merge** do Pull-Request.
+{: .text-justify}
+
+Para tratar essa situação, veja o tópico <A href="#tratando-conflitos">**"Tratando Conflitos"**</A>.
+{: .text-justify}
+
+
 * <A href="#links-rápidos">Voltar ao Início</A>
 
 {% comment %}
@@ -452,29 +572,20 @@ git push origin nomeDaBranch -f
 
 ## Boas Práticas e Padrões
 
-* <A href="#links-rápidos">Voltar ao Início</A>
+Na imagem de criação de *Pull-Requests* do tópico anterior, pode ser visto alguns campos a serem preenchidos.
+{: .text-justify}
 
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-{% endcomment %}
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request.JPG" alt="GitKraken Pull-Request">{: .center-image }
 
-## Tratando Conflitos
 
-* <A href="#links-rápidos">Voltar ao Início</A>
+Esses campos são:
+* **Title -** O título do *Pull-Request*. Aqui você colocará uma mensagem curta, resumindo o que o *Pull-Request* se propõe;
+* **Description -** Caso necessário, uma descrição detalhada do problema a ser resolvido pelo *Pull-Request* criado. E **mais importante**, explicando como esse *Pull-Request* deve ser testado, quais os passos para fazê-lo funcionar.
+* **Reviewers -**  Caso necessário, marque os amiguinhos para que eles recebam notificações para testar seu *Pull-Request*;
+* **Assignees -** Neste campo devem ser marcadas as pessoas que trabalharam no *Pull-Request*;
+* **Labels -**  Este campo varia de projeto para projeto. No jogo em que estou trabalhando no momento, criamos **labels** para diferenciar o **assunto** de cada *Issue* e de cada *Pull-Request*.
+{: .text-justify}
 
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-
-{% endcomment %}
-# Testando Pull-Requests
-
-* <A href="#links-rápidos">Voltar ao Início</A>
-
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-{% endcomment %}
-
-## Avaliando e Aceitando Pull-Requests
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
@@ -482,12 +593,157 @@ git push origin nomeDaBranch -f
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 {% endcomment %}
 
-## Sugerindo Alterações
+## Tratando Conflitos - Separando crianças de adultos
+
+Conflitos ocorrem quando se está tentando aplicar uma alteração de código em outro código também já alterado. Basicamente um conflito ocorre quando **o mesmo trecho de código** foi alterado por **2 ou mais pessoas** e as duas alterações estão sendo **combinadas**.
+{: .text-justify}
+
+Exemplos de situações:
+* Ao tentar aplicar o código da *Stash* em cima de um código seu;
+* Ao tentar dar **Merge** de uma branch em cima de outra branch.
+{: .text-justify}
+
+Sobre este último exemplo, explicarei com uma situação hipotética:
+1. Sua equipe está trabalhando com a *branch* **Develop** como *branch* de desenvolvimento;
+2. Você cria uma nova *branch* chamada **fix/player_jump**, a partir da **Develop**, com o intuito de corrigir um *BUG* no pulo do *player*;
+3. Um outro membro da equipe cria uma branch chamada **feature/player_score**, a partir da **Develop**, para implementar o sistema de *Score* do player;
+4. Você termina de implementar a correção, fazendo um *Pull-Request* e dando *Merge* do mesmo na branch **Develop**;
+    * Neste momento, a branch **feature/player_score** está **ATRÁS** da *Develop*, pois os *Commits* recebidos por ela da branch **fix/player_jump** a colocaram mais à frente. 
+5. O outro membro da equipe, enquanto implementava o sistema de *Score*, percebe o *BUG* no pulo do *player* e resolve corrigí-lo com um *Commit*;
+6. Ao tentar fazer um *Pull-Request*, o outro membro da equipe receberá um aviso de **conflito**, pois o *commit* de correção do pulo do *player* está em conflito com o código já feito por você, na *branch* **fix/player_jump**.
+{: .text-justify}
+
+**O que fazer nessa situação?**
+{: .text-justify}
+
+
+Tratar conflitos nada mais é, neste caso, do que trazer as novas alterações da **Develop** para a *branch* **feature/player_score**, escolhendo qual código de correção do pulo do *player* será usado, o já existente na **Develop** ou o novo, fornecido pela **feature/player_score**.
+{: .text-justify}
+
+### Tratando conflitos pelo site do Github
+
+Na situação demonstrada no tópico anterior, onde surgiram conflitos a serem resolvidos, irei mostrar como tratá-los pelo site do *Github*.
+{: .text-justify}
+
+Na tela do *Pull-Request* criado no github, descendo um pouco, será possível visualizar quais arquivos estão conflitantes, seguido do botão **Resolve Conflicts**.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/github_pull_request_4.JPG" alt="Github Pull-Request">{: .center-image }
+
+Ao clicar no botão **Resolve Conflicts**, será aberta uma nova tela mostrando o código em questão.
+{: .text-justify}
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/github_pull_request_5.JPG" alt="Github Pull-Request">{: .center-image }
+
+
+Na imagem acima, existem dois pontos no código que foram **criados** pelo *github* para separar o conflito em duas partes: o código da **Develop** e o código de onde se deseja dar **merge**.
+* **<<<<<<< feature/vertical_platform -** Esta seção mostra o código da *Branch* **feature/vertical_platform**;
+* **>>>>>>> develop -** Esta seção mostra o código da *Branch* **Develop**.
+{: .text-justify}
+
+Quem for tratar o conflito deve, manualmente, editar o código pelo próprio *Github*, afim de escolher qual será o trecho de código utilizado.
+{: .text-justify}
+
+O mesmo deverá ser feito para todos os arquivos conflitantes do Pull-Request.
+{: .text-justify}
+
+
+### Tratando conflitos pelo Gitkraken
+
+No *Gitkraken* é possível tratar conflitos de uma maneira mais eficiente do que a vista no site do *Github*.
+{: .text-justify}
+
+No programa, o que será feito é aplicar os *commits* da branch **Develop** na *branch* em que estamos trabalhando. Para cada *Commit* aplicado, teremos que tratar os possíveis conflitos.
+{: .text-justify}
+
+
+Primeiro, deve-se entrar na *Branch* a qual se está trabalhando, clicar com o **botão direito** na branch **REMOTA** **Develop** e selecionar a opção **Rebase**.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_2.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+Feito isso, caso **não hajam** conflitos, você não precisa continuar neste tópico :P. Agora, **havendo** conflitos, o próprio *Gitkraken* trará um aviso, no menu lateral **esquerdo**.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_3.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+
+Ao clicar no botão **View Conflict**, serão mostrados os arquivos com conflitos. Você terá que clicar em **cada um** deles e resolver seus conflitos.
+{: .text-justify}
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_4.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+
+Na tela de resolução de conflitos, a visualização será repartida em 3 seções.
+* **Lado esquerdo -** É mostrado o código da branch **Develop**;
+* **Lado direito -** É mostrado o código da branch que se está trabalhando;
+* **Parte Inferior -** É mostrado o código resultante da combinação escolhida dos códigos das duas *branches*.
+{: .text-justify}
+
+Assim como no tratamento de conflitos pelo site do *Github*, será necessário escolher quais partes do código deverão entrar no código final, escolhendo entre as telas dos lados direito e esquerdo. Após terminar, basta clicar no botão **Save**.
+{: .text-justify}
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_5.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+
+Após salvas as alterações, você será redirecionado para a tela anterior, onde eram mostrados os arquivos com conflito. Nesta tela, basta clicar no botão **Continue Rebase**, para que seja continuado o tratamento de conflitos.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_6.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+Provavelmente será necessário repetir os passos anteriores para cada vez que forem identificados novos conflitos. Sempre clicando em **Continue Rebase**. 
+{: .text-justify}
+
+Após terminar de resolver todos os conflitos, será necessário dar um novo **Push**, forçando o envio de alterações para o servidor remoto, pois o histórico de *Commits* foi reescrito, para a *Branch* em que se está trabalhando.
+{: .text-justify}
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/gitkraken/gitkraken_pull_request_7.JPG" alt="Gitkraken Pull-Request">{: .center-image }
+
+
+### Tratando conflitos pelo Visual Studio
+
+O *Visual Studio* tem uma ferramenta interna para tratar conflitos *Git*. Deixarei um *link* de um vídeo muito bom ensinando como isso é feito.
+{: .text-justify}
+
+[**Handling Merge Conflicts with Visual Studio and SourceTree**](https://www.youtube.com/watch?v=yGxY573b7RM&list=PLgViB0Msq6L06JZUkbze1AYlSdpYh9FVD&index=8&t=0s)
+
+### Unity Smart Merge
+
+Quando estamos tratando conflitos, faz sentido os arquivos *conflitantes* serem códigos. Mas o que acontece quando existe conflitos em outros arquivos, como os arquivos **.unity** e **.prefab**????
+{: .text-justify}
+
+A dica é: **TENTE EVITAR CONFLITOS NESTES ARQUIVOS**.
+{: .text-justify}
+
+
+Como fazer isso? Para evitar conflito em arquivos **.unity**, basta **SEMPRE** criar uma nova cena para trabalhar em alguma *branch* nova, pois assim **nunca** duas pessoas trabalharão no mesmo arquivo **.unity**.
+{: .text-justify}
+
+Para evitar conflitos nos arquivos **.prefab**, a dica é... converse com seu grupo sempre, e evite ter mais de uma pessoa trabalhando nos mesmos *prefabs*.
+{: .text-justify}
+
+
+**Mas e se já existirem conflitos, como tratá-los?** 
+{: .text-justify}
+
+Ahhh, jovem. A maneira mais simples neste caso é **Recriar** o que estiver fazendo do *ZERO*, tentando evitar os conflitos. Mas, caso esta não seja uma opção, existe uma ferramenta chamada **Smart Merge**.
+{: .text-justify}
+
+**Smart Merge** é um *Merge Tool* especial para *Sistemas de Controle de Versão* que estejam trabalhando com a **Unity**, o que ele faz é **Magicamente** tratar conflitos de arquivos **.prefab** e **.unity**.
+{: .text-justify}
+
+
+Me limitarei a deixar um link sobre o assunto. Caso algum dia seja necessário, farei um novo tópico sobre ele: [**Smart Merge**](https://docs.unity3d.com/Manual/SmartMerge.html)
+{: .text-justify}
 
 * <A href="#links-rápidos">Voltar ao Início</A>
 
 {% comment %}
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
+
 {% endcomment %}
 
 # Situações menos comuns
