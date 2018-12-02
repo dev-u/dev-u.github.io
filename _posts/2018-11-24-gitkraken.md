@@ -36,11 +36,6 @@ Material auxiliar da própria Dev-U sobre Git: [**link**](https://drive.google.c
     * <A href="#boas-práticas-e-padrões">Boas Práticas e Padrões</A>
     * <A href="#tratando-conflitos---separando-crianças-de-adultos">Tratando Conflitos - Separando crianças de adultos</A>
 
-* <A href="#situações-menos-comuns">Situações menos comuns</A>
-    * <A href="#descartando-commits-já-feitos">Descartando commits já feitos</A>
-    * <A href="#buscando-alterações-no-remoto-sem-perder-seu-trabalho-atual">Buscando alterações no remoto sem perder seu trabalho atual</A>
-    * <A href="#rebase---trazendo-alterações-na-develop-para-sua-branch">Rebase - Trazendo alterações na Develop para sua branch</A>
-
 {% comment %}
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 {% endcomment %}
@@ -745,31 +740,3 @@ Me limitarei a deixar um link sobre o assunto. Caso algum dia seja necessário, 
  # ---------------------------------------------------------------------------------------------------------------------------------------- #
 
 {% endcomment %}
-
-# Situações menos comuns
-
-* <A href="#links-rápidos">Voltar ao Início</A>
-
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-{% endcomment %}
-
-## Descartando commits já feitos
-
-* <A href="#links-rápidos">Voltar ao Início</A>
-
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-{% endcomment %}
-
-## Buscando alterações no remoto sem perder seu trabalho atual
-
-* <A href="#links-rápidos">Voltar ao Início</A>
-
-{% comment %}
- # ---------------------------------------------------------------------------------------------------------------------------------------- #
-{% endcomment %}
-
-## Rebase - Trazendo alterações na Develop para sua branch
-
-* <A href="#links-rápidos">Voltar ao Início</A>
