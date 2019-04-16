@@ -209,8 +209,8 @@ O padrão incorporado pela *Dev-U* é o padrão usando em empresas.
 * **imp/nome_da_melhoria** --> IMP vem de *improvement*, onde essa *branch* seria focado na melhoria de alguma *feature* existente;
 * **fix/nome_do_fix** --> *Branches* dedicadas à correção de *BUGs*;
 
-Outro ponto{: .text-justify}
- importante, fugindo de padrões e indo mais para o que é certo, é **de onde** uma branch deve ser criada.
+Outro ponto importante, fugindo de padrões e indo mais para o que é certo, é **de onde** uma branch deve ser criada.
+{: .text-justify}
 
 Resumidamente, todas as novas *branches* deverão ser criadas a partir da *branch* **DEVELOP**.
 {: .text-justify}
@@ -334,7 +334,7 @@ Em poucas palavras, *amend* é uma forma de alterar o último *commit* realizado
 * Após algum tempo de reflexão, você percebe que faltou a adição de uma linha de código para o *commit* em questão;
 * No lugar de criar um novo *commit* para incluir a adição da nova linha, você pode alterá-lo adicionando a nova linha e, até mesmo, alterando a mensagem de *commit*.
 
-### Como criar um ammend:
+### Como criar um Ammend:
 
 ### Pelo Gitkraken
 
