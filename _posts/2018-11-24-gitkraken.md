@@ -4,7 +4,7 @@ date: 2018-11-24
 tags: [dev-u, git, github, gitkraken]
 author: Hugo Borges
 header:
-    image: "/images/devu_banner.jpg"
+    overlay_image: "/images/devu_banner.jpg"
 excerpt: Dev-U, Git, Github, Gitkraken" 
 ---
 
